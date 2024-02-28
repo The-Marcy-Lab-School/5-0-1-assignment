@@ -99,7 +99,7 @@ describe(testSuiteName, () => {
     scoreCounter.correct(expect); // DO NOT TOUCH
   });
 
-  it('BankAccount - constructor function adds only instance properties to each instance, not methods', () => {
+  it('BankAccount - constructor function only adds PUBLIC instance properties to each instance, not private properties or methods', () => {
     const firstName1 = 'John';
     const lastName1 = 'Doe';
     const balance1 = 100;
