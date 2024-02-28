@@ -21,7 +21,7 @@ describe(testSuiteName, () => {
     scoreCounter.correct(expect); // DO NOT TOUCH
   });
 
-  it('Circle.getArea - correctly returns the area of the circle', () => {
+  it('Circle - getArea correctly returns the area of the circle', () => {
     const radius1 = 13;
     const color1 = 'white';
     const circle1 = new Circle(radius1, color1);
@@ -35,7 +35,7 @@ describe(testSuiteName, () => {
     scoreCounter.correct(expect); // DO NOT TOUCH
   });
 
-  it('Circle.getCircumference - correctly returns the circumference of the circle', () => {
+  it('Circle - getCircumference correctly returns the circumference of the circle', () => {
     const radius1 = 91;
     const color1 = 'gray';
     const circle1 = new Circle(radius1, color1);
@@ -49,7 +49,7 @@ describe(testSuiteName, () => {
     scoreCounter.correct(expect); // DO NOT TOUCH
   });
 
-  it('Circle.draw - returns the right message with color of the circle', () => {
+  it('Circle - draw returns the right message with color of the circle', () => {
     const radius1 = 3;
     const color1 = 'purple';
     const circle1 = new Circle(radius1, color1);
@@ -63,7 +63,7 @@ describe(testSuiteName, () => {
     scoreCounter.correct(expect); // DO NOT TOUCH
   });
 
-  it('Circle.changeColor - changes the color of the circle', () => {
+  it('Circle - changeColor changes the color of the circle and returns the new color', () => {
     const radius1 = 91;
     const color1 = 'purple';
     const circle1 = new Circle(radius1, color1);
@@ -115,7 +115,7 @@ describe(testSuiteName, () => {
     scoreCounter.correct(expect); // DO NOT TOUCH
   });
 
-  it('BankAccount.showBalance - returns a message of the balance to two decimal places', () => {
+  it('BankAccount - showBalance returns a message of the balance to two decimal places', () => {
     const balance1 = 100;
     const bankAccount1 = new BankAccount('Bob', 'Robertson', balance1);
     expect(`Your balance is ${balance1.toFixed(2)}`).toEqual(bankAccount1.showBalance());
@@ -135,7 +135,7 @@ describe(testSuiteName, () => {
     scoreCounter.correct(expect); // DO NOT TOUCH
   });
 
-  it('BankAccount.deposit - adds the amount to the balance and returns a message of the balance', () => {
+  it('BankAccount - deposit adds the amount to the balance and returns a message of the balance', () => {
     const balance1 = 100;
     const amount1 = 50;
     const msg1 = `Your balance is ${(balance1 + amount1).toFixed(2)}`;
@@ -159,7 +159,7 @@ describe(testSuiteName, () => {
     scoreCounter.correct(expect); // DO NOT TOUCH
   });
 
-  it('BankAccount.withdraw - subtracts the amount from the balance and returns a message of the balance', () => {
+  it('BankAccount - withdraw subtracts the amount from the balance and returns a message of the balance', () => {
     const balance1 = 100;
     const amount1 = 50;
     const msg1 = `Your balance is ${(balance1 - amount1).toFixed(2)}`;
@@ -173,7 +173,7 @@ describe(testSuiteName, () => {
     scoreCounter.correct(expect); // DO NOT TOUCH
   });
 
-  it('BankAccount.withdraw - does not withdraw if the amount is greater than the balance', () => {
+  it('BankAccount - withdraw does not withdraw if the amount is greater than the balance', () => {
     const balance = 100 + (Math.random() * 100);
     const amount = balance * 2;
     const msg = `You do not have enough funds.`;
