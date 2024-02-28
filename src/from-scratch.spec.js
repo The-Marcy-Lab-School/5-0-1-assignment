@@ -25,12 +25,12 @@ describe(testSuiteName, () => {
     const radius1 = 13;
     const color1 = 'white';
     const circle1 = new Circle(radius1, color1);
-    expect(Math.PI * radius1 ** 2).toEqual(circle1.getArea());
+    expect(circle1.getArea()).toEqual(Math.PI * radius1 ** 2);
 
     const radius2 = 7;
     const color2 = 'pink';
     const circle2 = new Circle(radius2, color2);
-    expect(Math.PI * radius2 ** 2).toEqual(circle2.getArea());
+    expect(circle2.getArea()).toEqual(Math.PI * radius2 ** 2);
 
     scoreCounter.correct(expect); // DO NOT TOUCH
   });
@@ -118,11 +118,11 @@ describe(testSuiteName, () => {
   it('BankAccount - showBalance returns a message of the balance to two decimal places', () => {
     const balance1 = 100;
     const bankAccount1 = new BankAccount('Bob', 'Robertson', balance1);
-    expect(`Your balance is ${balance1.toFixed(2)}`).toEqual(bankAccount1.showBalance());
+    expect(bankAccount1.showBalance()).toEqual(`Your balance is ${balance1.toFixed(2)}`);
 
     const balance2 = 200;
     const bankAccount2 = new BankAccount('Sarah', 'Haras', balance2);
-    expect(`Your balance is ${balance2.toFixed(2)}`).toEqual(bankAccount2.showBalance());
+    expect(bankAccount2.showBalance()).toEqual(`Your balance is ${balance2.toFixed(2)}`);
 
     scoreCounter.correct(expect); // DO NOT TOUCH
   });
