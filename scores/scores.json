@@ -1,56 +1,56 @@
 {
+  "testScores": {
+    "From Scratch Tests": {
+      "FrScTe1": 0,
+      "FrScTe2": 0,
+      "FrScTe3": 0,
+      "FrScTe4": 0,
+      "FrScTe5": 0,
+      "FrScTe6": 0,
+      "FrScTe7": 0,
+      "FrScTe8": 0,
+      "FrScTe9": 0,
+      "FrScTe10": 0,
+      "FrScTe11": 0,
+      "FrScTe12": 0,
+      "FrScTe13": 0,
+      "FrScTe14": 0
+    }
+  },
   "idToTestNameHash": {
     "FrScTe1": "From Scratch Tests Circle - constructor function adds only instance properties to each instance, not methods",
-    "FrScTe2": "From Scratch Tests Circle.getArea - correctly returns the area of the circle",
-    "FrScTe3": "From Scratch Tests Circle.getCircumference - correctly returns the circumference of the circle",
-    "FrScTe4": "From Scratch Tests Circle.draw - returns the right message with color of the circle",
-    "FrScTe5": "From Scratch Tests Circle.changeColor - changes the color of the circle",
+    "FrScTe2": "From Scratch Tests Circle - getArea correctly returns the area of the circle",
+    "FrScTe3": "From Scratch Tests Circle - getCircumference correctly returns the circumference of the circle",
+    "FrScTe4": "From Scratch Tests Circle - draw returns the right message with color of the circle",
+    "FrScTe5": "From Scratch Tests Circle - changeColor changes the color of the circle and returns the new color",
     "FrScTe6": "From Scratch Tests Circle - adds methods to the prototype",
     "FrScTe7": "From Scratch Tests BankAccount - constructor function adds only instance properties to each instance, not methods",
-    "FrScTe8": "From Scratch Tests BankAccount.showBalance - returns a message of the balance to two decimal places",
+    "FrScTe8": "From Scratch Tests BankAccount - showBalance returns a message of the balance to two decimal places",
     "FrScTe9": "From Scratch Tests BankAccount - defaults to a balance of 0 if a balance is not provided",
-    "FrScTe10": "From Scratch Tests BankAccount.deposit - adds the amount to the balance and returns a message of the balance",
-    "FrScTe11": "From Scratch Tests BankAccount.withdraw - subtracts the amount from the balance and returns a message of the balance",
-    "FrScTe12": "From Scratch Tests BankAccount.withdraw - does not withdraw if the amount is greater than the balance",
+    "FrScTe10": "From Scratch Tests BankAccount - deposit adds the amount to the balance and returns a message of the balance",
+    "FrScTe11": "From Scratch Tests BankAccount - withdraw subtracts the amount from the balance and returns a message of the balance",
+    "FrScTe12": "From Scratch Tests BankAccount - withdraw does not withdraw if the amount is greater than the balance",
     "FrScTe13": "From Scratch Tests BankAccount - adds only methods to the prototype",
     "FrScTe14": "From Scratch Tests BankAccount - tracks total holdings accross all BankAccount instances"
   },
   "testNameToIdHash": {
     "From Scratch Tests Circle - constructor function adds only instance properties to each instance, not methods": "FrScTe1",
-    "From Scratch Tests Circle.getArea - correctly returns the area of the circle": "FrScTe2",
-    "From Scratch Tests Circle.getCircumference - correctly returns the circumference of the circle": "FrScTe3",
-    "From Scratch Tests Circle.draw - returns the right message with color of the circle": "FrScTe4",
-    "From Scratch Tests Circle.changeColor - changes the color of the circle": "FrScTe5",
+    "From Scratch Tests Circle - getArea correctly returns the area of the circle": "FrScTe2",
+    "From Scratch Tests Circle - getCircumference correctly returns the circumference of the circle": "FrScTe3",
+    "From Scratch Tests Circle - draw returns the right message with color of the circle": "FrScTe4",
+    "From Scratch Tests Circle - changeColor changes the color of the circle and returns the new color": "FrScTe5",
     "From Scratch Tests Circle - adds methods to the prototype": "FrScTe6",
     "From Scratch Tests BankAccount - constructor function adds only instance properties to each instance, not methods": "FrScTe7",
+    "From Scratch Tests BankAccount - showBalance returns a message of the balance to two decimal places": "FrScTe8",
     "From Scratch Tests BankAccount - defaults to a balance of 0 if a balance is not provided": "FrScTe9",
-    "From Scratch Tests BankAccount.showBalance - returns a message of the balance to two decimal places": "FrScTe8",
-    "From Scratch Tests BankAccount.deposit - adds the amount to the balance and returns a message of the balance": "FrScTe10",
-    "From Scratch Tests BankAccount.withdraw - subtracts the amount from the balance and returns a message of the balance": "FrScTe11",
-    "From Scratch Tests BankAccount.withdraw - does not withdraw if the amount is greater than the balance": "FrScTe12",
+    "From Scratch Tests BankAccount - deposit adds the amount to the balance and returns a message of the balance": "FrScTe10",
+    "From Scratch Tests BankAccount - withdraw subtracts the amount from the balance and returns a message of the balance": "FrScTe11",
+    "From Scratch Tests BankAccount - withdraw does not withdraw if the amount is greater than the balance": "FrScTe12",
     "From Scratch Tests BankAccount - adds only methods to the prototype": "FrScTe13",
     "From Scratch Tests BankAccount - tracks total holdings accross all BankAccount instances": "FrScTe14"
   },
-  "testScores": {
-    "From Scratch Tests": {
-      "FrScTe1": 1,
-      "FrScTe2": 1,
-      "FrScTe3": 1,
-      "FrScTe4": 1,
-      "FrScTe5": 1,
-      "FrScTe6": 1,
-      "FrScTe7": 1,
-      "FrScTe8": 1,
-      "FrScTe9": 1,
-      "FrScTe10": 1,
-      "FrScTe11": 1,
-      "FrScTe12": 1,
-      "FrScTe13": 1,
-      "FrScTe14": 1
-    }
-  },
   "humanReadable": {
-    "From Scratch Tests": "14/14",
-    "finalTestScore": "FINAL SCORE: 14/14"
+    "From Scratch Tests": "0/14",
+    "finalTestScore": "FINAL SCORE: 0/14"
   }
 }
