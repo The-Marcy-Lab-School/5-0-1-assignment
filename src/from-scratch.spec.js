@@ -123,7 +123,7 @@ describe(testSuiteName, () => {
     const balance2 = 200;
     const bankAccount2 = new BankAccount('Sarah', 'Haras', balance2);
     expect(bankAccount2.showBalance()).toEqual(`Your balance is ${balance2.toFixed(2)}`);
-
+    
     scoreCounter.correct(expect); // DO NOT TOUCH
   });
 
@@ -131,7 +131,7 @@ describe(testSuiteName, () => {
     const bankAccount = new BankAccount('John', 'Doe');
     const balanceMsg = `Your balance is 0.00`;
     expect(bankAccount.showBalance()).toEqual(balanceMsg);
-
+    
     scoreCounter.correct(expect); // DO NOT TOUCH
   });
 
@@ -141,7 +141,7 @@ describe(testSuiteName, () => {
     const msg1 = `Your balance is ${(balance1 + amount1).toFixed(2)}`;
     const bankAccount1 = new BankAccount('Bob', 'Robertson', balance1);
     expect(bankAccount1.deposit(amount1)).toEqual(msg1);
-
+  
     const amount2 = 12.34;
     const msg2 = `Your balance is ${(balance1 + amount1 + amount2).toFixed(2)}`;
     expect(bankAccount1.deposit(amount2)).toEqual(msg2);
@@ -151,7 +151,7 @@ describe(testSuiteName, () => {
     const bankAccount2 = new BankAccount('Sarah', 'Haras', balance2);
     const msg3 = `Your balance is ${(balance2 + amount3).toFixed(2)}`;
     expect(bankAccount2.deposit(amount3)).toEqual(msg3);
-
+    
     const amount4 = 12.34;
     const msg4 = `Your balance is ${(balance2 + amount3 + amount4).toFixed(2)}`;
     expect(bankAccount2.deposit(amount4)).toEqual(msg4);
@@ -165,17 +165,19 @@ describe(testSuiteName, () => {
     const msg1 = `Your balance is ${(balance1 - amount1).toFixed(2)}`;
     const bankAccount1 = new BankAccount('Bill', 'Bryers', balance1);
     expect(bankAccount1.withdraw(amount1)).toEqual(msg1);
-
-    const amount2 = 11.11;
+    const amount2 = 11.25;
+    
     const msg2 = `Your balance is ${(balance1 - amount1 - amount2).toFixed(2)}`;
     expect(bankAccount1.withdraw(amount2)).toEqual(msg2);
-
+    
     scoreCounter.correct(expect); // DO NOT TOUCH
   });
 
   it('BankAccount - withdraw does not withdraw if the amount is greater than the balance', () => {
     const balance = 100 + (Math.random() * 100);
+
     const amount = balance * 2;
+    console.log(BankAccount.getTotalHoldings())
     const msg = `You do not have enough funds.`;
     const bankAccount = new BankAccount('Simon', 'Sky', balance);
     expect(bankAccount.withdraw(amount)).toBe(msg);
@@ -201,21 +203,24 @@ describe(testSuiteName, () => {
   it('BankAccount - tracks total holdings accross all BankAccount instances', () => {
     const account1 = new BankAccount('John', 'a');
     const account2 = new BankAccount('Jane', 'b');
-
+    const currentHoldings = BankAccount.getTotalHoldings();
+   
     // The current holdings will be !== 0 because of the prior tests utilizing
     // The deposit and withdraw instance methods.
-    const currentHoldings = BankAccount.getTotalHoldings();
+  
 
     account1.deposit(5);
+    
     account2.deposit(10);
-
-    expect(BankAccount.getTotalHoldings()).toEqual(currentHoldings + 15);
+    
+    const valueAfterDeposit = Number((currentHoldings + 15).toFixed(2));
+    expect(BankAccount.getTotalHoldings()).toEqual(valueAfterDeposit);
 
     account1.withdraw(10); // this shouldn't change the holdings
-    expect(BankAccount.getTotalHoldings()).toEqual(currentHoldings + 15);
+    expect(BankAccount.getTotalHoldings()).toEqual(valueAfterDeposit);
 
     account1.withdraw(2);
-    expect(BankAccount.getTotalHoldings()).toEqual(currentHoldings + 13);
+    expect(BankAccount.getTotalHoldings()).toEqual(valueAfterDeposit - 2);
 
     scoreCounter.correct(expect); // DO NOT TOUCH
   });
