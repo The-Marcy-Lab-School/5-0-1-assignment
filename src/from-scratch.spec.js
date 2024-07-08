@@ -123,7 +123,7 @@ describe(testSuiteName, () => {
     const balance2 = 200;
     const bankAccount2 = new BankAccount('Sarah', 'Haras', balance2);
     expect(bankAccount2.showBalance()).toEqual(`Your balance is ${balance2.toFixed(2)}`);
-    
+
     scoreCounter.correct(expect); // DO NOT TOUCH
   });
 
@@ -131,7 +131,7 @@ describe(testSuiteName, () => {
     const bankAccount = new BankAccount('John', 'Doe');
     const balanceMsg = `Your balance is 0.00`;
     expect(bankAccount.showBalance()).toEqual(balanceMsg);
-    
+
     scoreCounter.correct(expect); // DO NOT TOUCH
   });
 
@@ -141,7 +141,7 @@ describe(testSuiteName, () => {
     const msg1 = `Your balance is ${(balance1 + amount1).toFixed(2)}`;
     const bankAccount1 = new BankAccount('Bob', 'Robertson', balance1);
     expect(bankAccount1.deposit(amount1)).toEqual(msg1);
-  
+
     const amount2 = 12.34;
     const msg2 = `Your balance is ${(balance1 + amount1 + amount2).toFixed(2)}`;
     expect(bankAccount1.deposit(amount2)).toEqual(msg2);
@@ -151,7 +151,7 @@ describe(testSuiteName, () => {
     const bankAccount2 = new BankAccount('Sarah', 'Haras', balance2);
     const msg3 = `Your balance is ${(balance2 + amount3).toFixed(2)}`;
     expect(bankAccount2.deposit(amount3)).toEqual(msg3);
-    
+
     const amount4 = 12.34;
     const msg4 = `Your balance is ${(balance2 + amount3 + amount4).toFixed(2)}`;
     expect(bankAccount2.deposit(amount4)).toEqual(msg4);
@@ -166,21 +166,22 @@ describe(testSuiteName, () => {
     const bankAccount1 = new BankAccount('Bill', 'Bryers', balance1);
     expect(bankAccount1.withdraw(amount1)).toEqual(msg1);
     const amount2 = 11.25;
-    
+
     const msg2 = `Your balance is ${(balance1 - amount1 - amount2).toFixed(2)}`;
     expect(bankAccount1.withdraw(amount2)).toEqual(msg2);
-    
+
     scoreCounter.correct(expect); // DO NOT TOUCH
   });
 
   it('BankAccount - withdraw does not withdraw if the amount is greater than the balance', () => {
-    const balance = 100 + (Math.random() * 100);
-
-    const amount = balance * 2;
-    console.log(BankAccount.getTotalHoldings())
-    const msg = `You do not have enough funds.`;
+    const balance = 100 + Math.floor((Math.random() * 100));
     const bankAccount = new BankAccount('Simon', 'Sky', balance);
-    expect(bankAccount.withdraw(amount)).toBe(msg);
+
+    const amountToWithdraw = balance * 2;
+
+    const msg = `You do not have enough funds.`;
+    expect(bankAccount.withdraw(amountToWithdraw)).toBe(msg);
+
     const msg2 = `Your balance is ${balance.toFixed(2)}`;
     expect(bankAccount.showBalance()).toBe(msg2);
 
@@ -200,27 +201,54 @@ describe(testSuiteName, () => {
     scoreCounter.correct(expect); // DO NOT TOUCH
   });
 
+  it('BankAccount - the BankAccount class has a getTotalHoldings method and NO additional public class properties', () => {
+    // these are property names given to EVERY class by default
+    const defaultObjectPropertyNames = [
+      "length",
+      "name",
+      "prototype",
+    ]
+
+    // we expect your BankAccount class to have those default properties
+    // and the getTotalHoldings method. You should NOT have any public
+    // class property for the total holdings value (but it can be private!)
+    const expectedPropertyNames = [
+      'getTotalHoldings',
+      ...defaultObjectPropertyNames
+    ]
+
+    expect(Object.getOwnPropertyNames(BankAccount).sort()).toEqual(expectedPropertyNames.sort());
+
+    scoreCounter.correct(expect); // DO NOT TOUCH
+  });
+
   it('BankAccount - tracks total holdings accross all BankAccount instances', () => {
-    const account1 = new BankAccount('John', 'a');
-    const account2 = new BankAccount('Jane', 'b');
-    const currentHoldings = BankAccount.getTotalHoldings();
-   
     // The current holdings will be !== 0 because of the prior tests utilizing
-    // The deposit and withdraw instance methods.
-  
+    // The deposit and withdraw instance methods. So we'll get the starting
+    // holdings as a baseline, rounding to 2 decimals to handle floating point 
+    // precision errors
+    const totalHoldingsBaseline = +BankAccount.getTotalHoldings().toFixed(2);
 
-    account1.deposit(5);
-    
+    // We'll create an account with an initial balance of 5. The resulting
+    // total holdings should be 5 more than the baseline
+    const account1 = new BankAccount('John', 'a', 5);
+    expect(BankAccount.getTotalHoldings()).toEqual(totalHoldingsBaseline + 5);
+
+    // We'll create a second account with no additional balance
+    const account2 = new BankAccount('Jane', 'b');
+    expect(BankAccount.getTotalHoldings()).toEqual(totalHoldingsBaseline + 5);
+
     account2.deposit(10);
-    
-    const valueAfterDeposit = Number((currentHoldings + 15).toFixed(2));
-    expect(BankAccount.getTotalHoldings()).toEqual(valueAfterDeposit);
+    expect(BankAccount.getTotalHoldings()).toEqual(totalHoldingsBaseline + 15);
 
-    account1.withdraw(10); // this shouldn't change the holdings
-    expect(BankAccount.getTotalHoldings()).toEqual(valueAfterDeposit);
+    // This shouldn't change the holdings since account1 does not have
+    // sufficient funds to withdraw 10
+    account1.withdraw(10);
+    expect(BankAccount.getTotalHoldings()).toEqual(totalHoldingsBaseline + 15);
 
+    // But this should
     account1.withdraw(2);
-    expect(BankAccount.getTotalHoldings()).toEqual(valueAfterDeposit - 2);
+    expect(BankAccount.getTotalHoldings()).toEqual(totalHoldingsBaseline + 13);
 
     scoreCounter.correct(expect); // DO NOT TOUCH
   });
