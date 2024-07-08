@@ -189,8 +189,8 @@ describe(testSuiteName, () => {
 
   it('BankAccount - adds only methods to the prototype', () => {
     const bankAccount = new BankAccount('Simon', 'Sky');
-    const circlePrototype = Object.getPrototypeOf(bankAccount);
-    expect(Object.getOwnPropertyNames(circlePrototype).sort()).toEqual([
+    const bankAccountPrototype = Object.getPrototypeOf(bankAccount);
+    expect(Object.getOwnPropertyNames(bankAccountPrototype).sort()).toEqual([
       'constructor',
       'deposit',
       'showBalance',
